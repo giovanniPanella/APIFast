@@ -44,4 +44,5 @@ docker-compose up --build
 ```
 terá a API e o db em Mongo
 A API estará disponível em http://localhost:8000
+http://localhost:8000/docs
 

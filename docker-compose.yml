@@ -25,7 +25,7 @@ services:
     networks:
       - backend
 
-  # Caso tenha um processador que roda separado
+
   processor:
     build: .
     container_name: processor
