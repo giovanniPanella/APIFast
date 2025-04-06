@@ -1,0 +1,32 @@
+# Avaliação SUTHUB
+
+projeto está no GitHub para Baixar
+
+
+Este projeto consiste em uma API para gerenciar **faixas etárias** e realizar **inscrições de usuários** com base em sua idade e CPF. O sistema oferece autenticação via **Basic Auth** e persistência dos dados em **MongoDB local**.
+
+---
+
+## Funcionalidades
+
+### Para usuários administradores (com autenticação):
+
+- Cadastrar nova faixa etária (`/age-groups/`)
+- Listar todas as faixas etárias (`/age-groups/`)
+- Deletar uma faixa etária (`/age-groups/{id}`)
+
+### Para usuários finais:
+
+- Solicitar inscrição (`/enrollments/`)
+- Verificar status da inscrição por CPF (`/enrollments/status/{cpf}`)
+
+---
+
+## Autenticação
+
+- O sistema utiliza **Basic Auth**.
+- As credenciais padrão estão definidas em um arquivo estático ou variável de ambiente:
+
+```bash
+Usuário: admin
+Senha: admin123
