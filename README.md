@@ -1,6 +1,7 @@
 # Avaliação SUTHUB
 
 projeto está no GitHub para Baixar
+https://github.com/giovanniPanella/APIFast
 
 
 Este projeto consiste em uma API para gerenciar **faixas etárias** e realizar **inscrições de usuários** com base em sua idade e CPF. O sistema oferece autenticação via **Basic Auth** e persistência dos dados em **MongoDB local**.
