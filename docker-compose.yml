@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: api-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+    networks:
+      - backend
+
+  mongo:
+    image: mongo:6
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - backend
+
+  # Caso tenha um processador que roda separado
+  processor:
+    build: .
+    container_name: processor
+    command: python processor/processor.py
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+    networks:
+      - backend
+
+volumes:
+  mongo_data:
+
+networks:
+  backend:
