@@ -30,4 +30,18 @@ Este projeto consiste em uma API para gerenciar **faixas etárias** e realizar *
 
 ```bash
 Usuário: admin
-Senha: admin123
+Senha: 1234
+```
+##  Testes usei PYtest
+pytest -v
+
+---
+
+## Docker
+para rodar o container precisa do Docker e Docker Compose
+```bash
+docker-compose up --build
+```
+terá a API e o db em Mongo
+A API estará disponível em http://localhost:8000
+
