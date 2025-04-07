@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from bson import ObjectId
 from typing import Optional
 
+#model para isncrições
 class EnrollmentModel(BaseModel):
     id: Optional[str] = Field(default_factory=str, alias="_id")
     name: str

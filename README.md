@@ -24,6 +24,7 @@ Este projeto consiste em uma API para gerenciar **faixas etárias** e realizar *
 ---
 
 ## Autenticação
+- A rota de inscrição e Cosnulta deixei Publica, pois entendi que o usuário final não precisa estar logado para fazer a inscrição
 
 - O sistema utiliza **Basic Auth**.
 - As credenciais padrão estão definidas em um arquivo estático ou variável de ambiente:

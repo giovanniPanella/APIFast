@@ -1,7 +1,7 @@
 import motor.motor_asyncio
 import os
 from dotenv import load_dotenv
-
+#configuração do Bando de Dados usado o dataenv para colocar as variaveis de ambiente
 load_dotenv()
 
 MONGO_URL = os.getenv("MONGO_URL")

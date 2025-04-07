@@ -18,6 +18,7 @@ async def test_enrollment_valid_and_duplicate():
     }
 
     async with httpx.AsyncClient() as client:
+        
         await client.post(
             f"{BASE_URL}/age-groups/",
             json=age_group,
@@ -25,15 +26,15 @@ async def test_enrollment_valid_and_duplicate():
         )
 
         enrollment = {
-            "name": "João da Silva",
-            "age": 61,
+            "name": "Aline",
+            "age": 25,
             "cpf": "12345678999"
         }
 
+        
         response = await client.post(
             f"{BASE_URL}/enrollments/",
-            json=enrollment,
-            headers=basic_auth_header()
+            json=enrollment
         )
         print("STATUS:", response.status_code)
         print("BODY:", response.text)
@@ -41,17 +42,17 @@ async def test_enrollment_valid_and_duplicate():
         assert response.status_code == 200
         assert "id" in response.json()
 
+        # Consulta por CPF 
         response = await client.get(
-            f"{BASE_URL}/enrollments/status/12345678999",
-            headers=basic_auth_header()
+            f"{BASE_URL}/enrollments/status/12345678999"
         )
         assert response.status_code == 200
-        assert response.json()["name"] == "João da Silva"
+        assert response.json()["name"] == "Aline"
 
+        # Tenta cadastrar novamente – espera erro 400
         response = await client.post(
             f"{BASE_URL}/enrollments/",
-            json=enrollment,
-            headers=basic_auth_header()
+            json=enrollment
         )
         assert response.status_code == 400
         assert "já existe" in response.text.lower()
